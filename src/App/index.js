@@ -1,5 +1,9 @@
 import React from 'react';
 
+import './styles';
+
+import EnglishScoreChart from '../component/EnglishScoreChart';
+
 class App extends React.Component {
 	constructor() {
         super();
@@ -7,7 +11,7 @@ class App extends React.Component {
 
     render() {
         return (<div>
-        	App
+        	<EnglishScoreChart />
         </div>)
     }
 }

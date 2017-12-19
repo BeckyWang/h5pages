@@ -76,7 +76,8 @@ module.exports = {
 
     externals: {
         'react': 'React',
-        'react-dom': 'ReactDOM'
+        'react-dom': 'ReactDOM',
+        'echarts': 'echarts'
     },
 
     plugins: [
@@ -85,6 +86,9 @@ module.exports = {
             to: 'lib/'
         }, {
             from: 'node_modules/react-dom/dist/react-dom.min.js',
+            to: 'lib/'
+        }, {
+            from: 'node_modules/echarts/dist/echarts.min.js',
             to: 'lib/'
         }]),
         new HtmlwebpackPlugin({
@@ -95,7 +99,8 @@ module.exports = {
         new HtmlWebpackIncludeAssetsPlugin({
             assets: [
                 'lib/react.min.js',
-                'lib/react-dom.min.js'
+                'lib/react-dom.min.js',
+                'lib/echarts.min.js'
             ],
             append: false
         }),

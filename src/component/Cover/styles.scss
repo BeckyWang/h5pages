@@ -80,20 +80,14 @@
 	}
 
 	.difficulty-per {
-		margin: 20px 18px 0;
+		margin: 20px 16px 0;
 	    border-radius: 8px;
 	    background-color: #fff;
 
 		.title {
+			@extend .title-public;
 			font-size: 24px;
-		    padding-left: 14px;
-		    padding-top: 8px;
-		    line-height: 40px;
-		    color: #333;
-		    font-weight: bold;
-		    letter-spacing: 1px;
-		    font-family: PingFangSC-Medium;
-		    margin-bottom: 8px;
+			padding: 8px 14px;
 		}
 
 		.item {
@@ -160,13 +154,14 @@
 	}
 
 	.evaluation {
-		margin: 20px 18px 0;
+		margin: 20px 16px 0;
 	    border-radius: 8px;
 	    background-color: #fff;
 
 	    .title {
 		    @extend .title-public;
 			font-size: 24px;
+			padding: 8px 14px;
 	    }
 
 	    .score {

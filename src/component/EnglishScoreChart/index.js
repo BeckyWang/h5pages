@@ -99,7 +99,8 @@ class App extends React.Component {
             color: ['#5A83FF', '#FF739C'],
             grid: {
                 top: 30,
-                right: 14
+                right: 10,
+                left: 30
             }
         };
         const chart = echarts.init(this.refs.chart);

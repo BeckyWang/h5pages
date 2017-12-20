@@ -4,14 +4,29 @@ import echarts from 'echarts';
 import styles from './styles';
 
 class App extends React.Component {
-    constructor() {
+    constructor({data}) {
         super();
+        this.state = { data }
+
+        this.show = this.show.bind(this);
     }
 
     componentDidMount() {
-        const xData = ['单词选项', '完型填空', '阅读理解', '首字母填空', '语法填空'];
-        const yData1 = [8, 23, 23, 23, 23];
-        const yData2 = [30, 30, 30, 30, 30];
+        const dom = this.refs.charts;
+
+        const d = this.state.data;
+        const xData = d.map(({desc}) => desc);
+        const yData1 = d.map(({my_socre}) => my_socre);
+        const yData2 = d.map(({avg_score}) => avg_score);
+        
+        let n = 0;
+        while(n * 5 < d.length) {
+            this.show(xData.slice(n * 5, n * 5 + 5), yData1.slice(n * 5, n * 5 + 5), yData2.slice(n * 5, n * 5 + 5), n++);
+        }
+
+    }
+
+    show(xData, yData1, yData2, index) {
         const option = {
             legend: {
                 data: [{
@@ -103,7 +118,7 @@ class App extends React.Component {
                 left: 30
             }
         };
-        const chart = echarts.init(this.refs.chart);
+        const chart = echarts.init(this.refs['chart' + index]);
         chart.setOption(option);
         chart.on('click', function({componentType, value}) {
             if (componentType == 'xAxis') {
@@ -170,8 +185,9 @@ class App extends React.Component {
     }
 
     render() {
+        const len = Math.ceil(this.state.data.length / 5);
         return (<div className={styles.section}>
-            <div style={{height: "260px"}} ref="chart"></div>
+            {(new Array(len)).fill("").map((x, i) => <div ref={`chart${i}`} style={{height: "260px"}}></div>)}
         </div>)
     }
 }

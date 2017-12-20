@@ -3,15 +3,27 @@ import echarts from 'echarts';
 
 import styles from './styles';
 
+function calculateIndex(rank, arr) {
+    let i = 0, len = arr.length, v = 0;
+    for(; i < len; i++) {
+        v += arr[i];
+        if(v >= rank) {
+            return len - i - 1;
+        }
+    }
+    return 0;
+}
+
 class App extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor({data, type, rank, total}) {
+        super();
         this.state = {
-            type: props.type || 'CLASS', 
-            total: 80,
-            rank: 40, 
-            section: [5, 6, 8, 11, 7, 12, 14, 4], 
-            index: 5
+            type: type || 'CLASS', 
+            total,
+            rank, 
+            section: data.map(({stage_count}) => stage_count), 
+            index: calculateIndex(rank, data.map(({stage_count}) => stage_count).reverse()),
+            xData: data.map(({stage_desc}) => stage_desc)
         }
     }
 
@@ -19,7 +31,7 @@ class App extends React.Component {
         const option = {
             xAxis: [{
                 type: 'category',
-                data: ['0-45', '46-60', '61-75', '76-90', '91-105', '106-120', '121-135', '136-150'],
+                data: this.state.xData,
                 axisLine: {
                     show: false
                 },
@@ -89,7 +101,7 @@ class App extends React.Component {
         return (<div className={styles.section}>
             <div className={styles.title}>各分数段人数（{type == 'CLASS' ? '本班' : '本年级'}）</div>
             <p className={styles.subtitle}>参加考试人数：{total}人</p>
-            <p className={styles.subtitle}>班级排名：{rank}/{total}</p>
+            <p className={styles.subtitle}>{type == 'CLASS' ? '班级' : '年级'}排名：{rank}/{total}</p>
             <div ref="chart" style={{height: '240px'}}></div>
         </div>)
     }

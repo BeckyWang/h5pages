@@ -22,14 +22,14 @@ function Bar({value, color}) {
 
 
 class App extends React.Component {
-    constructor() {
+    constructor({data}) {
         super();
         this.state = {
-            data: [
-                {name: '知识点', avarage: 70, level: 55},
-                {name: '知识点', avarage: 50, level: 85},
-                {name: '知识点', avarage: 70, level: 70}
-            ]
+            data: data.map(({name, my_ratio, avg_ratio}) => ({
+                name,
+                level: my_ratio,
+                avarage: avg_ratio
+            }))
         }
     }
 

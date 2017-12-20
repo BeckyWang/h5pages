@@ -6,6 +6,7 @@ import EnglishScoreChart from '../component/EnglishScoreChart';
 import ScoreSectionChart from '../component/ScoreSectionChart';
 import AbilityRadarChart from '../component/AbilityRadarChart';
 import QuestionPieChart from '../component/QuestionPieChart';
+import LevelAnalysis from '../component/LevelAnalysis';
 import EnglishTable1 from '../component/EnglishTable1';
 import EnglishTable2 from '../component/EnglishTable2';
 import Cover from '../component/Cover';
@@ -23,6 +24,7 @@ class App extends React.Component {
             <ScoreSectionChart />
         	<EnglishScoreChart />
             <AbilityRadarChart />
+            <LevelAnalysis />
             <QuestionPieChart />
         </div>)
     }

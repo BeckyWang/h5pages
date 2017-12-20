@@ -4,7 +4,7 @@ const HtmlwebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractSCSS = new ExtractTextPlugin('lib/[name].css', {allChunks: false});
+const extractSCSS = new ExtractTextPlugin('css/[name].css', {allChunks: false});
 
 
 module.exports = {

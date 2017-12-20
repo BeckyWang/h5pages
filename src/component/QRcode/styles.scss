@@ -1,0 +1,43 @@
+.code-container {
+	margin: 20px 16px 0;
+    border-radius: 8px;
+    background-color: #fff;
+
+    .title {
+	    font-size: 24px;
+		padding: 8px 14px;
+	    line-height: 40px;
+	    color: #333;
+	    font-weight: bold;
+	    letter-spacing: 1px;
+	    font-family: PingFangSC-Medium;
+	}
+
+	.description {
+		font-size: 16px;
+		padding: 0 14px;
+	    line-height: 20px;
+	    color: #666;
+	    font-family: PingFangSC-Medium;
+	    text-align: justify;
+	}
+
+	.qr-code {
+    	position: relative;
+
+		img {
+			width: 100%;
+		}
+
+		.transparent {
+			opacity: 0;
+		}
+
+		.non-transparent {
+    		position: absolute;
+    		left: 0;
+    		bottom: -20px;
+		}
+	}
+	
+}

@@ -1,9 +1,6 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 
 import styles from './styles';
-
-let cx = classNames.bind(styles);
 
 class EnglishTable2 extends React.Component {
 	constructor() {
@@ -13,34 +10,64 @@ class EnglishTable2 extends React.Component {
     render() {
         return (<div className={styles['table-container']}>
         	<ul className={styles['head']}>
-        		<li><span>题型</span></li>
-        		<li><span>知识点</span></li>
-        		<li><span>我的得分</span></li>
-        		<li><span>平均分/总分</span></li>
+        		<li style={{width: '16%'}}><span>题型</span></li>
+        		<li style={{width: '36.5%'}}><span>知识点</span></li>
+        		<li style={{width: '18%'}}><span>我的得分</span></li>
+        		<li style={{width: '23.5%'}}><span>平均分/总分</span></li>
         	</ul>
         	<ul className={styles['body']}>
-        		<li>
-        			<span>单选1</span>
-                    <span>话题</span>
-                    <ul>
-                        <li>考察点</li>
-                        <li>考察点</li>
-                        <li>考察点</li>
-                        <li>考察点</li>
-                    </ul>
-        			<ul>
-                        <li>2</li>
-                        <li>2</li>
-                        <li>2</li>
-                        <li>2</li>
-                    </ul>
-                    <ul>
-                        <li>1/2</li>
-                        <li>1/2</li>
-                        <li>1/2</li>
-                        <li>1/2</li>
+        		<li className={styles['body-item']}>
+        			<span style={{width: '16%'}}>单选1</span>
+                    <span style={{width: '17%'}}>话题</span>
+                    <ul className={styles['knowledge-point']} style={{width: '67%'}}>
+                        <li>
+                            <span style={{width: '31%'}}>考察点</span>
+                            <span style={{width: '33.5%'}}>2</span>
+                            <span style={{width: '34.5%'}}>1.5/2</span>
+                        </li>
+                        <li>
+                            <span style={{width: '31%'}}>考察点</span>
+                            <span style={{width: '33.5%'}}>2</span>
+                            <span style={{width: '34.5%'}}>1.5/2</span>
+                        </li>
+                        <li>
+                            <span style={{width: '31%'}}>考察点</span>
+                            <span style={{width: '33.5%'}}>2</span>
+                            <span style={{width: '34.5%'}}>1.5/2</span>
+                        </li>
+                        <li>
+                            <span style={{width: '31%'}}>考察点</span>
+                            <span style={{width: '33.5%'}}>2</span>
+                            <span style={{width: '34.5%'}}>1.5/2</span>
+                        </li>
                     </ul>
         		</li>
+                <li className={styles['body-item']}>
+                    <span style={{width: '16%'}}>单选1</span>
+                    <span style={{width: '17%'}}>话题</span>
+                    <ul className={styles['knowledge-point']} style={{width: '67%'}}>
+                        <li>
+                            <span style={{width: '31%'}}>考察点</span>
+                            <span style={{width: '33.5%'}}>2</span>
+                            <span style={{width: '34.5%'}}>1.5/2</span>
+                        </li>
+                        <li>
+                            <span style={{width: '31%'}}>考察点</span>
+                            <span style={{width: '33.5%'}}>2</span>
+                            <span style={{width: '34.5%'}}>1.5/2</span>
+                        </li>
+                        <li>
+                            <span style={{width: '31%'}}>考察点</span>
+                            <span style={{width: '33.5%'}}>2</span>
+                            <span style={{width: '34.5%'}}>1.5/2</span>
+                        </li>
+                        <li>
+                            <span style={{width: '31%'}}>考察点</span>
+                            <span style={{width: '33.5%'}}>2</span>
+                            <span style={{width: '34.5%'}}>1.5/2</span>
+                        </li>
+                    </ul>
+                </li>
         	</ul>
         </div>)
     }

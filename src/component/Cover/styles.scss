@@ -107,17 +107,20 @@
 			    height: 12px;
 			    border-radius: 6px;
 			    margin: 6px 0;
-			}
 
+			    >div {
+			    	height: 12px;
+    				border-radius: 6px;	
+			    }
+			}
+/*
 			.bg-green {
-				height: 12px;
-    			border-radius: 6px;	
+				
 			    background-color: #5EE168;
 			}
 
 			.bg-pink {
-				height: 12px;
-    			border-radius: 6px;	
+				
 			    background-color: #FF739C;
 			}
 
@@ -125,7 +128,7 @@
 				height: 12px;
     			border-radius: 6px;	
 			    background-color: #FFBA01;
-			}
+			}*/
 		}
 
 		.level {

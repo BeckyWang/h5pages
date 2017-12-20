@@ -1,9 +1,6 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 
 import styles from './styles';
-
-let cx = classNames.bind(styles);
 
 class EnglishTable1 extends React.Component {
 	constructor() {

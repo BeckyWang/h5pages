@@ -1,0 +1,159 @@
+.table-container {
+	margin: 20px 16px 0;
+    border-radius: 8px;
+    background-color: #fff;
+
+	.title {
+	    font-size: 24px;
+		padding: 8px 14px;
+	    line-height: 50px;
+	    color: #333;
+	    font-weight: bold;
+	    letter-spacing: 1px;
+	    font-family: PingFangSC-Medium;
+	}
+
+	.graph {
+		display: flex;
+		margin-top: 20px;
+
+		li {
+			width: 33.3%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.circle {
+			width: 70px;
+			height: 70px;
+			background-color: #fff;
+			border-radius: 50%;
+			border: 12px solid #F3F4F5;
+			position: relative;
+
+			.ring {
+				position: absolute;
+				top: -12px;
+				left: -12px;
+				transform: matrix(0,-1,-1,0,0,0);
+			}
+
+			.info {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 16px;
+
+				span {
+					font-family: PingFangSC-Regular;
+					color: #666;
+					font-size: 14px;
+				}
+			}
+		}
+
+		.drop-points {
+			display: flex;
+			align-items: center;
+			margin: 16px 0;
+
+			.round {
+			    display: inline-block;
+			    width: 8px;
+			    height: 8px;
+			    border-radius: 50%;
+			    border: 3px solid #FFBA01;
+			    margin-right: 8px;
+			}
+
+			span {
+				font-family: PingFangSC-Regular;
+				color: #666;
+				font-size: 14px;
+				letter-spacing: 1px;
+			}
+		}
+	}
+
+	.table {
+		padding: 10px;
+
+		.head {
+			display: flex;
+			justify-content: space-between;
+
+			li {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;				
+				border-radius: 6px;				
+				font-size: 14px;
+				font-family: PingFangSC-Regular;
+				padding: 12px 0;
+
+				span {
+					line-height: 16px;
+					text-align: center;
+				}
+			}
+
+			.difficulty {
+				background-color: rgba(255,115,156,0.10);
+				color: #FF739C;
+			}
+
+			.type {
+				background-color: #FF739C;
+				color: #fff;
+			}
+		}
+
+		.body {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 10px;
+			
+			.body-title {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				span {
+					font-family: PingFangSC-Regular;
+					color: #666;
+					font-size: 14px;
+					line-height: 36px;
+				}
+			}
+
+			.body-info {
+				display: flex;
+
+				>div {
+					width: 19.5%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					margin: 0 4px;
+
+					span {
+						font-family: PingFangSC-Regular;
+						color: #666;
+						font-size: 14px;
+						line-height: 36px;
+					}
+				}
+
+				.bg-pink {
+					background-color: rgba(255,115,156,0.10);
+					border-radius: 6px;
+
+					span {
+						color: #FF739C;
+					}
+				}
+			}
+		}
+	}
+}

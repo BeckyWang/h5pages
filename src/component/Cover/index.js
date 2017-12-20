@@ -7,14 +7,52 @@ import img_boy from '../../assets/images/a1_boy.png';
 import img_girl from '../../assets/images/a1_girl.png';
 
 let cx = classNames.bind(styles);
+let easy_hard_ratio = [{desc: "简单题", ratio: "30"}, {desc: "中等题", ratio: "50"}, {desc: "难题", ratio: "20"}];
+const score_base = {
+	"student_score": 110.5,
+	"total_score": 150,
+	"class_avg_score": 92.3,
+	"grade_avg_score": 98.6,
+	"question_count": 21,
+	"knowledge_count": 19,
+	"comprehensive_difficulty": 3
+};
 
 class Cover extends React.Component {
 	constructor() {
         super();
     }
 
+    componentWillMount() {
+    	easy_hard_ratio.map(data => {
+    		switch(data.desc) {
+    			case '简单题':
+    				data['color'] = '#5EE168';
+    				break;
+    			case '中等题':
+    				data['color'] = '#FF739C';
+    				break;
+    			case '难题':
+    				data['color'] = '#FFBA01';
+    				break;
+    			default:
+    				break;
+    		}
+    	});
+    }
+
     render() {
-    	const level = 3;
+    	const { student_score, total_score, class_avg_score, grade_avg_score, question_count, knowledge_count, comprehensive_difficulty } = score_base;
+    	const difficultyContainer = easy_hard_ratio.map(({desc, ratio, color}) => <div className={styles['item']}>
+            <div className={styles['description']}>
+                <span>{desc}</span>
+                <span>占比{ratio}%</span>
+            </div>
+            <div className={styles['percent-bg']}>
+                <div style={{width: `${ratio}%`, background: color}}></div>
+            </div>
+        </div>);
+
         return (<div className={styles['cover-container']}>
         	<div className={styles['head']}>
         		<img src={img_boy}/>
@@ -27,9 +65,9 @@ class Cover extends React.Component {
         	<div className={styles['subject']}>
         		<p className={styles['title']}>高中数学</p>
 		        <ul className={styles['score']}>
-	                <li>150</li>
-	                <li>21</li>
-	                <li>19</li>
+	                <li>{total_score}</li>
+	                <li>{question_count}</li>
+	                <li>{knowledge_count}</li>
 		        </ul>
 		        <ul className={styles['item']}>
 	                <li>总分</li>
@@ -40,49 +78,23 @@ class Cover extends React.Component {
 
         	<div className={styles['difficulty-per']}>
         		<p className={styles['title']}>难易占比</p>
-	            <div className={styles['item']}>
-	                <div className={styles['description']}>
-		                <span>简单题</span>
-		                <span>占比30%</span>
-	                </div>
-	                <div className={styles['percent-bg']}>
-	                    <div className={styles['bg-green']} style={{width: '30%'}}></div>
-	                </div>
-	            </div>
-	            <div className={styles['item']}>
-	                <div className={styles['description']}>
-		                <span>中等题</span>
-		                <span>占比50%</span>
-	                </div>
-	                <div className={styles['percent-bg']}>
-	                    <div className={styles['bg-orange']} style={{width: '50%'}}></div>
-	                </div>
-	            </div>
-	            <div className={styles['item']}>
-	                <div className={styles['description']}>
-		                <span>难题</span>
-		                <span>占比20%</span>
-	                </div>
-	                <div className={styles['percent-bg']}>
-	                    <div className={styles['bg-pink']} style={{width: '20%'}}></div>
-	                </div>
-	            </div>
+	            { difficultyContainer }
 		        <p className={styles['title']}>试卷综合难度</p>
 		        <ul className={styles['level']}>
-		            <li className={cx({'active': level > 0})}></li>
-		            <li className={cx({'active': level > 1})}></li>
-		            <li className={cx({'active': level > 2})}></li>
-		            <li className={cx({'active': level > 3})}></li>
-		            <li className={cx({'active': level > 4})}></li>
+		            <li className={cx({'active': comprehensive_difficulty > 0})}></li>
+		            <li className={cx({'active': comprehensive_difficulty > 1})}></li>
+		            <li className={cx({'active': comprehensive_difficulty > 2})}></li>
+		            <li className={cx({'active': comprehensive_difficulty > 3})}></li>
+		            <li className={cx({'active': comprehensive_difficulty > 4})}></li>
 		        </ul>
         	</div>
 
         	<div className={styles['evaluation']}>
         		<p className={styles['title']}>我学的怎么样</p>
 		        <ul className={styles['score']}>
-	                <li>110<span>/150</span></li>
-	                <li>110.2</li>
-	                <li>110.8</li>
+	                <li>{student_score}<span>/{total_score}</span></li>
+	                <li>{class_avg_score}</li>
+	                <li>{grade_avg_score}</li>
 		        </ul>
 		        <ul className={styles['item']}>
 	                <li>分数/满分</li>

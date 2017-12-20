@@ -9,6 +9,8 @@ import QuestionPieChart from '../component/QuestionPieChart';
 import EnglishTable1 from '../component/EnglishTable1';
 import EnglishTable2 from '../component/EnglishTable2';
 import Cover from '../component/Cover';
+import QuestionTable from '../component/QuestionTable';
+import QRcode from '../component/QRcode';
 
 class App extends React.Component {
 	constructor() {
@@ -19,11 +21,13 @@ class App extends React.Component {
         return (<div>
         	<Cover />
         	<EnglishTable1 />
-        	<EnglishTable2 />
+            <EnglishTable2 />
+        	<QuestionTable />
             <ScoreSectionChart />
         	<EnglishScoreChart />
             <AbilityRadarChart />
             <QuestionPieChart />
+            <QRcode />
         </div>)
     }
 }

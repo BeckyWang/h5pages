@@ -4,12 +4,12 @@ import echarts from 'echarts';
 import styles from './styles';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor({data}) {
+        super();
         this.state = {
-            items: ['语言基础知识', '诗歌鉴赏', '文言文阅读', '现代文阅读', '写作'],
-            myAbility: [70, 75, 75, 85, 80],
-            avarageAbility: [80, 60, 80, 70, 65]
+            items: data.map(({name}) => name),
+            myAbility: data.map(({my_ratio}) => my_ratio),
+            avarageAbility: data.map(({avg_ratio}) => avg_ratio)
         }
     }
 

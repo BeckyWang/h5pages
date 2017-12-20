@@ -4,9 +4,8 @@ const HtmlwebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractSCSS = new ExtractTextPlugin('lib/[name].css', {allChunks: false});
+const extractSCSS = new ExtractTextPlugin('css/[name].css', {allChunks: false});
 
-const host = 'http://www.jxfy.net.cn/';
 
 module.exports = {
     entry: {
@@ -15,8 +14,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: 'js/[name].js',
-        publicPath: host
+        filename: 'js/[name].js'
     },
 
     module: {
@@ -104,7 +102,7 @@ module.exports = {
             to: 'lib/'
         }]),
         new HtmlwebpackPlugin({
-            filename: './templates/index.html',
+            filename: './index.html',
             template: 'src/index.ejs',
             title: '考试报告'
         }),
@@ -112,7 +110,8 @@ module.exports = {
             assets: [
                 'lib/polyfill.min.js',
                 'lib/react.min.js',
-                'lib/react-dom.min.js'
+                'lib/react-dom.min.js',
+                'lib/echarts.min.js'
             ],
             append: false
         }),

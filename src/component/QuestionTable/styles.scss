@@ -78,7 +78,7 @@
 	}
 
 	.table {
-		padding: 10px;
+		padding: 20px 10px;
 
 		.head {
 			display: flex;
@@ -132,17 +132,23 @@
 				display: flex;
 
 				>div {
-					width: 19.5%;
+					width: 17.5%;
 					display: flex;
 					flex-direction: column;
 					align-items: center;
-					margin: 0 4px;
+					margin-right: 8px;
+
+					&:last-child {
+						margin-right: 0;
+					}
 
 					span {
+						width: 100%;
 						font-family: PingFangSC-Regular;
 						color: #666;
 						font-size: 14px;
 						line-height: 36px;
+						text-align: center;
 					}
 				}
 

@@ -35,11 +35,9 @@ class App extends React.Component {
             const result = await response.json();
         } catch(e) {
             const { data } = result;
-            const { konwledge_distribute_five, konwledge_distribute_six } = data;
             this.setState({
                 loading: false,
-                konwledge_distribute_five,
-                konwledge_distribute_six
+                ...data
             });
         }
     }
@@ -49,18 +47,26 @@ class App extends React.Component {
     }
 
     render() {
-        const {loading, konwledge_distribute_five, konwledge_distribute_six} = this.state;
+        const {
+            loading,
+            score_base,
+            konwledge_distribute_five, konwledge_distribute_six, 
+            score_stage_class, class_count, class_rank,
+            score_stage_grade, grade_count, grade_rank,
+            konwledge_distribute, question_type
+        } = this.state;
         
         return loading ? <div></div> : (<div>
             <Cover />
             <EnglishTable1 />
             <EnglishTable2 />
-            <ScoreSectionChart />
-            <EnglishScoreChart />
+            <ScoreSectionChart data={score_stage_class} type="CLASS" total={class_count} rank={class_rank} />
+            <ScoreSectionChart data={score_stage_grade} type="GRADE" total={grade_count} rank={grade_rank} />
+            <EnglishScoreChart data={question_type} />
             <AbilityRadarChart data={konwledge_distribute_five}/>
             <AbilityRadarChart data={konwledge_distribute_six}/>
-            <LevelAnalysis />
-            <QuestionPieChart />
+            <LevelAnalysis data={konwledge_distribute}/>
+            <QuestionPieChart/>
             <QRcode />
         </div>)
     }

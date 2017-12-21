@@ -51,7 +51,7 @@ class App extends React.Component {
     render() {
         const {loading, konwledge_distribute_five, konwledge_distribute_six} = this.state;
         
-        return (loading ? <div></div> : (<div>
+        return loading ? <div></div> : (<div>
             <Cover />
             <EnglishTable1 />
             <EnglishTable2 />

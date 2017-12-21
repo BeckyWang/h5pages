@@ -25,18 +25,23 @@
 	.qr-code {
     	position: relative;
 
-		img {
+		.transparent-bg {
+			opacity: 0;
 			width: 100%;
 		}
 
-		.transparent {
-			opacity: 0;
-		}
-
-		.non-transparent {
+		.non-transparent-bg {
+			width: 100%;
     		position: absolute;
     		left: 0;
     		bottom: -20px;
+		}
+
+		.code { 
+			width: 40%;
+			position: absolute;
+    		left: 30%;
+    		bottom: 0;
 		}
 	}
 	

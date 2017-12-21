@@ -16,6 +16,7 @@
 	.graph {
 		display: flex;
 		margin-top: 20px;
+		margin-bottom: 10px;
 
 		li {
 			width: 33.3%;
@@ -29,7 +30,7 @@
 			height: 70px;
 			background-color: #fff;
 			border-radius: 50%;
-			border: 12px solid #F3F4F5;
+			border: 10px solid #F3F4F5;
 			position: relative;
 
 			.ring {
@@ -64,7 +65,7 @@
 			    height: 8px;
 			    border-radius: 50%;
 			    border: 3px solid #FFBA01;
-			    margin-right: 8px;
+			    margin-right: 6px;
 			}
 
 			span {

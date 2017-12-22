@@ -60,7 +60,7 @@ class App extends React.Component {
                     name : '我的能力',
                     lineStyle: {
                         normal: {
-                            color: '#5EE168'
+                            color: '#FF739C'
                         }
                     },
                     itemStyle: {
@@ -71,20 +71,20 @@ class App extends React.Component {
                                 y: 0.5,
                                 r: 0.5,
                                 colorStops: [{
-                                    offset: 0, color: '#5EE168'
+                                    offset: 0, color: '#FF739C'
                                 }, {
-                                    offset: .6, color: '#5EE168'
+                                    offset: .6, color: '#FF739C'
                                 }, {
                                     offset: .6, color: '#fff'
                                 }, {
-                                    offset: 1, color: '#5EE168'
+                                    offset: 1, color: '#FF739C'
                                 }, {
-                                    offset: 1, color: '#5EE168'
+                                    offset: 1, color: '#FF739C'
                                 }],
                                 globalCoord: false // 缺省为 false
                             },
                             borderWidth: 0,
-                            borderColor: '#5EE168'
+                            borderColor: '#FF739C'
                         }
                     },
                     symbol: "circle",
@@ -97,7 +97,7 @@ class App extends React.Component {
                     name : '平均能力',
                     areaStyle: {
                         normal: {
-                            color: 'rgba(247,153,180,.7)',
+                            color: 'rgba(222,230,255,.7)',
                             opacity: 1
                         }
                     },

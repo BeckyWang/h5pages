@@ -7,26 +7,13 @@ import styles from './styles';
 
 
 class App extends React.Component {
-    constructor() {
+    constructor({data}) {
         super();
         this.state = {
-            data: [
-                {value:335, name:'直接访问'},
-                {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
-                {value:135, name:'视频广告'},
-                {value:1548, name:'搜索引擎'},
-                {value:335, name:'直接访问'},
-                {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
-                {value:135, name:'视频广告'},
-                {value:1548, name:'搜索引擎'},
-                {value:335, name:'直接访问'},
-                {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
-                {value:135, name:'视频广告'},
-                {value:1548, name:'搜索引擎'}
-            ],
+            data: data.map(({name, konwledge_ratio}) => ({
+                name,
+                value: konwledge_ratio
+            })),
             chosen: false,
             info: {}
         }
@@ -60,7 +47,7 @@ class App extends React.Component {
                     data: dList
                 }
             ],
-            color: ['#437FFF', '#54C7FC', '#FF9600', '#FF2851', '#FFCD00']
+            color: ['#437FFF', '#54C7FC', '#FF9600', '#FF2851', '#FFCD00', '#F5665E']
         };
         const chart = echarts.init(this.refs.chart);
         chart.setOption(option);
@@ -104,7 +91,7 @@ class App extends React.Component {
             <div ref="chart" style={{height: '320px'}}></div>
             {chosen ? <div className={styles.info}>
                 <p className={styles.name}>{info.name}</p>
-                <p className={styles.value}>{info.value}</p>
+                <p className={styles.value}>{info.value}%</p>
             </div>
             : <div className={classNames(styles.tips, styles.info)}>点击色块查看</div>}
         </div>)

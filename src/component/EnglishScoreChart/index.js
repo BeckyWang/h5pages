@@ -20,8 +20,8 @@ class App extends React.Component {
         const yData2 = d.map(({avg_score}) => avg_score);
         
         let n = 0;
-        while(n * 5 < d.length) {
-            this.show(xData.slice(n * 5, n * 5 + 5), yData1.slice(n * 5, n * 5 + 5), yData2.slice(n * 5, n * 5 + 5), n++);
+        while(n * 4 < d.length) {
+            this.show(xData.slice(n * 4, n * 4 + 4), yData1.slice(n * 4, n * 4 + 4), yData2.slice(n * 4, n * 4 + 4), n++);
         }
 
     }
@@ -96,7 +96,8 @@ class App extends React.Component {
                             color: '#666'
                         }
                     }
-                }))
+                })),
+                barWidth: 26
             }, {
                 name: '总分',
                 type: 'bar',
@@ -109,7 +110,8 @@ class App extends React.Component {
                             color: '#666'
                         }
                     }
-                }))
+                })),
+                barWidth: 26
             }],
             color: ['#5A83FF', '#FF739C'],
             grid: {

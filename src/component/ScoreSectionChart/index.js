@@ -65,7 +65,7 @@ class App extends React.Component {
                             value: d,
                             itemStyle: {
                                 normal: {
-                                    color: '#FFBA01'
+                                    color: '#FF739C'
                                 }
                             }
                         }

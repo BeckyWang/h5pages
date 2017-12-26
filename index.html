@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>考试报告查询</title>
+    <body>
+        <input type="text" id="id"><input type="button" value="搜索" onclick="search()">
+        <ul id="list"></ul>
+        <script>
+            var search = function() {
+                var id = document.getElementById("id").value;
+                var script = document.createElement('script');
+                script.setAttribute("src", "http://ksbg.xueersi.com/index.php?r=stat/search&stu_id=" + id + "&callback=show");
+                document.getElementsByTagName('body')[0].append(script);
+            }
+
+            var show = function(result) {
+                var data = result.data;
+                var list = document.getElementById("list");
+
+                if (!data.length) {
+                    list.innerHTML = "没有查询结果";
+                }
+
+                var innerHTML = data.map(function(d) {
+                    return "<li><a href='" + d.preview_url + "'>" + d.subject_name + "</a></li>"
+                });
+
+                list.innerHTML = innerHTML.join("");
+            }
+        </script>
+    </body>
+</html>

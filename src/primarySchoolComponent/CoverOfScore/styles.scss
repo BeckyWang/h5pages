@@ -1,0 +1,51 @@
+.score-container {
+	display: flex;
+	margin: 50px 10px 0;
+	padding: 26px 0 26px 50%;
+	position: relative;
+	background-color: #fff;
+	border-radius: 8px;
+
+	.image {
+		position: absolute;
+		top: -32px;
+		left: -5px;
+
+		img {
+			width: 160px;
+		}
+	}
+
+	.score-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-end;
+
+		.title {
+			font-family: PingFangSC-Semibold;
+			font-size: 22px;
+			font-weight: bold;
+			color: #666666;
+			padding-bottom: 25px;
+		}
+
+		.score {
+			display: flex;
+			align-items: center;
+
+			span {
+				font-family: Georgia-Bold;
+				font-size: 20px;
+				color: #2A2A2A;
+				letter-spacing: 1px;
+			}
+
+			.my-score {
+				font-family: Georgia-Bold;
+				font-size: 36px;
+				color: #5EE168;
+			}
+		}
+	}
+}

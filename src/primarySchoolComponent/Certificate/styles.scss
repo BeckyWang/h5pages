@@ -1,0 +1,54 @@
+.certificate-container {
+	margin: 50px 10px 0;
+	position: relative;
+	min-height: 490px;
+
+	.image {
+		width: 70%;
+		margin: 0 auto;
+		text-align: center;
+
+		img {
+			height: 260px;
+		}
+	}
+
+	.info {
+		position: absolute;
+		top: 235px;
+		background-color: #fff;
+		border-radius: 6px;
+		padding: 30px 16px;
+		z-index: -1;
+
+		.title {
+			font-family: PingFangSC-Medium;
+			font-size: 34px;
+			color: #F5665E;
+			font-weight: bold;
+			letter-spacing: 1px;
+			text-align: center;
+			margin: 8px 0 16px;
+		}
+
+		.content {
+			font-family: PingFangSC-Medium;
+			font-size: 18px;
+			color: #666;
+			letter-spacing: 1px;
+			line-height: 30px;
+
+			.name {
+				margin-right: 5px;
+			}
+
+			img {
+				display: inline-block;
+				height: 26px;
+				position: relative;
+    			top: 5px;
+    			margin: 0 2px;
+			}	
+		}
+	}
+}

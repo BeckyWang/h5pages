@@ -1,0 +1,58 @@
+.table-container {
+	margin: 40px 10px 0;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 24px 8px 5px;
+
+	.head {
+		display: flex;
+		justify-content: space-between;
+
+		li {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			span {
+				border-radius: 20px;
+				color: #F5665E;
+				font-size: 12px;
+				font-family: PingFangSC-Regular;
+				padding: 8px 0;
+				margin: 0 3px;
+				text-align: center;
+				border: 2px solid #F5665E;
+			}
+		}
+	}
+
+	.body {
+		margin-top: 10px;
+
+		li {
+			display: flex;
+			align-items: center;
+			padding: 10px 0;
+
+			span {
+				color: #333;
+				font-size: 14px;
+				font-family: PingFangSC-Regular;
+				text-align: center;
+			}
+
+			.module {
+				color: #999;
+			}
+		}	
+	}
+
+	.image {
+		width: 75%;
+		margin: 20px auto 0;
+		
+		img {
+			width: 100%;
+		}
+	}	
+}

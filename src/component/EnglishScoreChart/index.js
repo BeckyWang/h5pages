@@ -60,7 +60,10 @@ class App extends React.Component {
                 axisLabel: {
                     color: '#999',
                     interval: 0,
-                    padding: [4, 3]
+                    padding: [4, 3],
+                    formatter: function (value) {
+                        return value.length > 4 ? `${value.substring(0, 3)}...` : value;
+                    }
                 },
                 splitLine: {
                     show: false
@@ -70,7 +73,6 @@ class App extends React.Component {
             yAxis: [{
                 type: 'value',
                 min: 0,
-                max: 30,
                 axisLine: {
                     show: false
                 },

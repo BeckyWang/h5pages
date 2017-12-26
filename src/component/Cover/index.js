@@ -13,7 +13,7 @@ const colorMap = {
     '难题': '#FFBA01'
 };
 
-const Cover = ({score_base, easy_hard_ratio, student_name, sex, subject}) => {
+const Cover = ({score_base, easy_hard_ratio, student_name, sex, subject, brief}) => {
     const { student_score, total_score, class_avg_score, grade_avg_score, question_count, knowledge_count, comprehensive_difficulty } = score_base;
 
     const difficultyContainer = easy_hard_ratio.map(({desc, ratio}) => <div className={styles['item']}>
@@ -31,7 +31,7 @@ const Cover = ({score_base, easy_hard_ratio, student_name, sex, subject}) => {
             <img src={sex == 1 ? img_boy : img_girl}/>
             <p className={styles['student-info']}>
                 <span className={styles['name']}>{student_name}</span>
-                <span>17-18秋季高二数学2H2-1期中试卷报告</span>
+                <span>{brief}</span>
             </p>
         </div>
 

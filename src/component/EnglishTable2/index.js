@@ -7,9 +7,9 @@ const EnglishTable2 = ({question_type_topic}) => {
         <span style={{width: '16%'}}>{desc}</span>
         <span style={{width: '17%'}}>{topic_name}</span>
         <ul className={styles['knowledge-point']} style={{width: '67%'}}>
-            { topic_list.map(({avg_score, knowledge, my_socre, total_score}) => <li>
+            { topic_list.map(({avg_score, knowledge, my_score, total_score}) => <li>
                 <span style={{width: '31%'}}>{knowledge}</span>
-                <span style={{width: '33.5%'}}>{my_socre}</span>
+                <span style={{width: '33.5%'}}>{my_score}</span>
                 <span style={{width: '34.5%'}}>{avg_score}/{total_score}</span>
             </li>) }
         </ul>

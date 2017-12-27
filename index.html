@@ -4,6 +4,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>考试报告查询</title>
+
+        <style>
+            input[type=text] {
+                font-size: 16px;
+            }
+            input[type=button] {
+                font-size: 14px;
+            }
+            body {
+                width: 500px;
+                text-align: center;
+                margin: auto;
+                padding-top: 20px;
+            }
+            ul, li {
+                margin: 0;
+                padding: 0;
+                margin-top: 6px;
+            }
+        </style>
     <body>
         <input type="text" id="id"><input type="button" value="搜索" onclick="search()">
         <ul id="list"></ul>
@@ -16,11 +36,13 @@
             }
 
             var show = function(result) {
+                console.log(result.data)
                 var data = result.data;
                 var list = document.getElementById("list");
 
-                if (!data.length) {
+                if (!data || !data.length) {
                     list.innerHTML = "没有查询结果";
+                    return;
                 }
 
                 var innerHTML = data.map(function(d) {

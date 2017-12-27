@@ -1,0 +1,53 @@
+.table-container {
+	margin: 40px 10px 0;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 24px 8px 5px;
+
+	.title {
+		color: #666;
+		font-size: 30px;
+		font-weight: bold;
+		font-family: PingFangSC-Regular;
+		text-align: center;
+	}
+
+	.body {
+		margin: 30px 0 20px;
+
+		li {
+			display: flex;
+			align-items: center;
+			margin: 14px 5%;
+			padding: 8px 0;
+			border-radius: 30px;
+			border: 2px solid #F5665E;
+
+			.desc {
+				color: #F5665E;
+				font-size: 16px;
+				font-family: PingFangSC-Regular;
+				padding-left: 20px;
+			}
+
+			.star {
+				display: flex;
+				align-items: center;
+
+				img {
+					width: 28px;
+					margin-right: 10px;
+				}
+			}
+		}	
+	}
+
+	.image {
+		width: 75%;
+		margin: 20px auto 0;
+		
+		img {
+			width: 100%;
+		}
+	}	
+}

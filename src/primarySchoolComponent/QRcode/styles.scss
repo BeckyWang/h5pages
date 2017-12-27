@@ -1,0 +1,52 @@
+.code-container {
+	margin: 40px 10px 0;
+    border-radius: 8px;
+    background-color: #fff;
+    padding-top: 20px;
+
+    .title {
+	    font-size: 34px;
+		padding: 8px 14px;
+	    line-height: 50px;
+	    color: #F5665E;
+	    font-weight: bold;
+	    letter-spacing: 1px;
+	    font-family: PingFangSC-Medium;
+	    text-align: center;
+	}
+
+	.description {
+		font-size: 18px;
+		padding: 8px 20px 0;
+	    line-height: 26px;
+	    color: #666;
+	    font-family: PingFangSC-Medium;
+	    text-align: justify;
+	}
+
+	.qr-code {
+    	position: relative;
+    	width: 90%;
+    	margin: 0 auto;
+
+		.transparent-bg {
+			opacity: 0;
+			width: 100%;
+		}
+
+		.non-transparent-bg {
+			width: 100%;
+    		position: absolute;
+    		left: 0;
+    		bottom: -20px;
+		}
+
+		.code { 
+			width: 38%;
+			position: absolute;
+    		left: 31%;
+    		bottom: 0;
+		}
+	}
+	
+}

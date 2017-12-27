@@ -1,25 +1,32 @@
 .certificate-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 	margin: 50px 10px 0;
 	position: relative;
-	min-height: 490px;
+	min-height: 500px;
 
 	.image {
-		width: 70%;
+		position: absolute;
+		bottom: 44%;
+		width: 100%;
 		margin: 0 auto;
 		text-align: center;
 
-		img {
-			height: 260px;
+		.full-image {
+			width: 240px;
+		}
+
+		.part-image {
+			width: 90%;
 		}
 	}
 
 	.info {
-		position: absolute;
-		top: 235px;
 		background-color: #fff;
 		border-radius: 6px;
 		padding: 30px 16px;
-		z-index: -1;
+		min-height: 190px;
 
 		.title {
 			font-family: PingFangSC-Medium;

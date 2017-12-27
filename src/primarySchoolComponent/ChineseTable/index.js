@@ -27,16 +27,16 @@ const data = [{
 
 const ChineseTable = () => {
     const tableContainer = data.map(({desc, my_socre, avg_score}) => <li>
-        <span style={{width: '40%'}} className={styles['module']}>{desc}</span>
-        <span style={{width: '30%'}}>{avg_score}</span>
-        <span style={{width: '30%'}}>{my_socre}</span>
+        <span style={{width: '42%'}} className={styles['module']}>{desc}</span>
+        <span style={{width: '29%'}}>{avg_score}</span>
+        <span style={{width: '29%'}}>{my_socre}</span>
     </li>);
 
     return <div className={styles['table-container']}>
         <ul className={styles['head']}>
-            <li style={{width: '40%'}}><span>模块</span></li>
-            <li style={{width: '30%'}}><span>平均能力</span></li>
-            <li style={{width: '30%'}}><span>我的能力</span></li>
+            <li style={{width: '42%'}}><span>模块</span></li>
+            <li style={{width: '29%'}}><span>平均能力</span></li>
+            <li style={{width: '29%'}}><span>我的能力</span></li>
         </ul>
         <ul className={styles['body']}>
             { tableContainer }

@@ -97,7 +97,7 @@ class App extends React.Component {
                     name : '平均能力',
                     areaStyle: {
                         normal: {
-                            color: 'rgba(222,230,255,.7)',
+                            color: 'rgba(90,131,255,.7)',
                             opacity: 1
                         }
                     },
@@ -116,7 +116,7 @@ class App extends React.Component {
                     }
                 }]
             }],
-            color: ['#F799B4']
+            color: ['#5A83FF']
         };
         chart.setOption(option);
     }

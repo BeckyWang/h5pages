@@ -12,7 +12,7 @@ class App extends React.Component {
         this.state = { 
             data,
             tableIndex: null,
-            tableData: [],
+            tableData: []
          }
 
         this.show = this.show.bind(this);
@@ -20,8 +20,6 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        const dom = this.refs.charts;
-
         const d = this.state.data;
         const xData = d.map(({desc}) => desc);
         const yData1 = d.map(({my_score}) => my_score);
@@ -59,7 +57,28 @@ class App extends React.Component {
             },
             xAxis: [{
                 type: 'category',
-                data: xData,
+                data: xData.map((data, i) => {
+                    if(!i && !index) {
+                        return {
+                            value: data,
+                            textStyle: {
+                                color: '#FFBA01',
+                                borderColor: '#FFBA01',
+                                borderRadius: 6,
+                                borderWidth: 1,
+                                padding: [4, 3]
+                            }
+                        }
+                    } else {
+                        return {
+                            value: data,
+                            textStyle: {
+                                color: '#999',
+                                padding: [4, 3]
+                            }
+                        }
+                    }
+                }),
                 axisLine: {
                     show: false
                 },
@@ -98,30 +117,60 @@ class App extends React.Component {
             series: [{
                 name: '我的得分',
                 type: 'bar',
-                data: yData1.map(data => ({
-                    value: data,
-                    label: {
-                        normal: {
-                            show: false,
-                            position: 'top',
-                            color: '#666'
+                data: yData1.map((value, i) => {
+                    if(!i && !index) {
+                        return {
+                            value,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top',
+                                    color: '#666'
+                                }
+                            }
+                        }
+                    } else {
+                        return {
+                            value,
+                            label: {
+                                normal: {
+                                    show: false,
+                                    position: 'top',
+                                    color: '#666'
+                                }
+                            }
                         }
                     }
-                })),
+                }),
                 barWidth: 26
             }, {
                 name: '总分',
                 type: 'bar',
-                data: yData2.map(data => ({
-                    value: data,
-                    label: {
-                        normal: {
-                            show: false,
-                            position: 'top',
-                            color: '#666'
+                data: yData2.map((value, i) => {
+                    if(!i && !index) {
+                        return {
+                            value,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top',
+                                    color: '#666'
+                                }
+                            }
+                        }
+                    } else {
+                        return {
+                            value,
+                            label: {
+                                normal: {
+                                    show: false,
+                                    position: 'top',
+                                    color: '#666'
+                                }
+                            }
                         }
                     }
-                })),
+                }),
                 barWidth: 26
             }],
             color: ['#5A83FF', '#FF739C'],
@@ -133,65 +182,104 @@ class App extends React.Component {
         };
         const chart = echarts.init(this.refs['chart' + index]);
         chart.setOption(option);
+
+        this.setState({
+            ['chart_' + index]: {
+                chart,
+                option
+            }
+        });
+
         chart.on('click', ({componentType, value}) => {
             if (componentType == 'xAxis') {
-                chart.setOption({
-                    ...option,
-                    xAxis: {
-                        ...option.xAxis,
-                        data: xData.map((data, i) => {
-                            if(i == xData.indexOf(value)) {
-                                return {
-                                    value: data,
-                                    textStyle: {
-                                        color: '#FFBA01',
-                                        borderColor: '#FFBA01',
-                                        borderRadius: 6,
-                                        borderWidth: 1,
-                                        padding: [4, 3]
-                                    }
-                                }
-                            } else {
-                                return {
-                                    value: data,
-                                    textStyle: {
-                                        color: '#999',
-                                        padding: [4, 3]
-                                    }
-                                }
-                            }
-                        })
-                    },
-                    series: option.series.map(s => ({
-                        ...s,
-                        data: s.data.map((d, i) => {
-                            if(i == xData.indexOf(value)) {
-                                return {
-                                    value: d.value,
-                                    label: {
-                                        normal: {
-                                            show: true,
-                                            position: 'top',
-                                            color: '#666'
+                let n = 0;
+                while(n * 4 < this.state.data.length) {
+                    if(index == n) {
+                        chart.setOption({
+                            ...option,
+                            xAxis: {
+                                ...option.xAxis,
+                                data: xData.map((data, i) => {
+                                    if(i == xData.indexOf(value)) {
+                                        return {
+                                            value: data,
+                                            textStyle: {
+                                                color: '#FFBA01',
+                                                borderColor: '#FFBA01',
+                                                borderRadius: 6,
+                                                borderWidth: 1,
+                                                padding: [4, 3]
+                                            }
+                                        }
+                                    } else {
+                                        return {
+                                            value: data,
+                                            textStyle: {
+                                                color: '#999',
+                                                padding: [4, 3]
+                                            }
                                         }
                                     }
-                                }
-                            } else {
-                                return {
-                                    value: d.value,
-                                    label: {
-                                        normal: {
-                                            show: false,
-                                            position: 'top',
-                                            color: '#666'
+                                })
+                            },
+                            series: option.series.map(s => ({
+                                ...s,
+                                data: s.data.map((d, i) => {
+                                    if(i == xData.indexOf(value)) {
+                                        return {
+                                            value: d.value,
+                                            label: {
+                                                normal: {
+                                                    show: true,
+                                                    position: 'top',
+                                                    color: '#666'
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        return {
+                                            value: d.value,
+                                            label: {
+                                                normal: {
+                                                    show: false,
+                                                    position: 'top',
+                                                    color: '#666'
+                                                }
+                                            }
                                         }
                                     }
-                                }
-                            }
-                        })
-                    }))
-                });
-
+                                })
+                            }))
+                        });
+                    } else {
+                        const {chart, option} = this.state['chart_' + n];
+                        chart.setOption({
+                            ...option,
+                            xAxis: {
+                                ...option.xAxis,
+                                data: option.xAxis[0].data.map(({value}) => ({
+                                        value,
+                                        textStyle: {
+                                            color: '#999',
+                                            padding: [4, 3]
+                                        }
+                                    }))
+                            },
+                            series: option.series.map(s => ({
+                                ...s,
+                                data: s.data.map(({value}) => ({
+                                    value,
+                                    label: {
+                                        normal: {
+                                            show: false
+                                        }
+                                    }
+                                }))
+                            }))
+                        });;
+                    }
+                    n++;
+                }
                 this.showTable(value);
             } else {
                 chart.setOption(option);
@@ -208,7 +296,7 @@ class App extends React.Component {
             });
             this.setState({
                 tableIndex: 2,
-                tableData,
+                tableData: tableData[0] ? tableData[0].question_type_topic : [],
             });
         } else {
             tableData = questionData.filter(({desc}) => {

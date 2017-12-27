@@ -43,11 +43,9 @@ class App extends React.Component {
             qrcode_url, foot_notice,
         } = this.state;
 
-        let bodyContainer = null;
-
         switch(+type) {
             case 1:
-                bodyContainer = <div>
+                return <div>
                     <Cover student_name={student_name} sex={sex} subject={subject} score_base={score_base} easy_hard_ratio={easy_hard_ratio} brief={brief} />
                     <QuestionPieChart data={konwledge_distribute} type='Math'/>
                     <ScoreInfoTable score_base={score_base} />
@@ -56,9 +54,8 @@ class App extends React.Component {
                     <LevelAnalysis data={konwledge_distribute} />
                     <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice}/>
                 </div>;
-                break;
             case 2:
-                bodyContainer = <div>
+                return <div>
                     <Cover student_name={student_name} sex={sex} subject={subject} score_base={score_base} easy_hard_ratio={easy_hard_ratio} brief={brief} />
                     <QuestionPieChart data={konwledge_distribute} type='Chinese'/>
                     <ScoreInfoTable score_base={score_base} />
@@ -68,9 +65,8 @@ class App extends React.Component {
                     <QuestionTable problem_analysis={problem_analysis} problem_analysis_list={problem_analysis_list} />
                     <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice}/>
                 </div>;
-                break;
             case 3:
-                bodyContainer = <div>
+                return <div>
                     <Cover student_name={student_name} sex={sex} subject={subject} score_base={score_base} easy_hard_ratio={easy_hard_ratio} brief={brief} />
                     <QuestionPieChart data={konwledge_distribute} type='English'/>
                     <ScoreInfoTable score_base={score_base} />
@@ -80,37 +76,30 @@ class App extends React.Component {
                     <QuestionTable problem_analysis={problem_analysis} problem_analysis_list={problem_analysis_list} />
                     <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice}/>
                 </div>;
-                break;
             case 4:
-                bodyContainer = <div>
+                return <div>
                     <Score />
                     <ChineseTable />
                     <Certificate />
                     <QRcodeForPrimary qrcode_url={qrcode_url} foot_notice={foot_notice}/>
                 </div>;
-                break;
             case 5:
-                bodyContainer = <div>
+                return <div>
                     <Score />
                     <PublicTable type='Math'/>
                     <Certificate />
                     <QRcodeForPrimary qrcode_url={qrcode_url} foot_notice={foot_notice}/>
                 </div>;
-                break;
             case 6:
-                bodyContainer = <div>
+                return <div>
                     <Score />
                     <PublicTable type='English'/>
                     <Certificate />
                     <QRcodeForPrimary qrcode_url={qrcode_url} foot_notice={foot_notice}/>
                 </div>;
-                break;
             default:
-                bodyContainer = <div>error</div>;
-                break;
+                return <div>error</div>;
         }
-
-        return bodyContainer;
     }
 }
 

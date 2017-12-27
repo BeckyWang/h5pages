@@ -3,12 +3,20 @@ import echarts from 'echarts';
 
 import styles from './styles';
 
+import EnglishTable1 from '../EnglishTable1';
+import EnglishTable2 from '../EnglishTable2';
+
 class App extends React.Component {
     constructor({data}) {
         super();
-        this.state = { data }
+        this.state = { 
+            data,
+            tableIndex: null,
+            tableData: [],
+         }
 
         this.show = this.show.bind(this);
+        this.showTable = this.showTable.bind(this);
     }
 
     componentDidMount() {
@@ -24,6 +32,7 @@ class App extends React.Component {
             this.show(xData.slice(n * 4, n * 4 + 4), yData1.slice(n * 4, n * 4 + 4), yData2.slice(n * 4, n * 4 + 4), n++);
         }
 
+        this.showTable(d[0].desc);
     }
 
     show(xData, yData1, yData2, index) {
@@ -124,7 +133,7 @@ class App extends React.Component {
         };
         const chart = echarts.init(this.refs['chart' + index]);
         chart.setOption(option);
-        chart.on('click', function({componentType, value}) {
+        chart.on('click', ({componentType, value}) => {
             if (componentType == 'xAxis') {
                 chart.setOption({
                     ...option,
@@ -182,16 +191,56 @@ class App extends React.Component {
                         })
                     }))
                 });
+
+                this.showTable(value);
             } else {
                 chart.setOption(option);
             }
         });
     }
 
+    showTable(type) {
+        const questionData = this.state.data;
+        let tableData = [];
+        if(type.indexOf('阅读理解') > -1) {
+            tableData = questionData.filter(({desc}) => {
+                return desc.indexOf('阅读理解') > -1;
+            });
+            this.setState({
+                tableIndex: 2,
+                tableData,
+            });
+        } else {
+            tableData = questionData.filter(({desc}) => {
+                return desc.indexOf(type) > -1;
+            });
+            this.setState({
+                tableIndex: 1,
+                tableData,
+            });
+        }
+    }
+
     render() {
+        const { tableData, tableIndex } = this.state;
         const len = Math.ceil(this.state.data.length / 5);
-        return (<div className={styles.section}>
-            {(new Array(len)).fill("").map((x, i) => <div ref={`chart${i}`} style={{height: "260px"}}></div>)}
+        let tableContainer = null;
+        switch(tableIndex) {
+            case 1:
+                tableContainer = <EnglishTable1 tableData={tableData}/>;
+                break;
+            case 2:
+                tableContainer = <EnglishTable2 tableData={tableData}/>;
+                break;
+            default:
+                break;
+        }
+
+        return (<div>
+            <div className={styles.section}>
+                {(new Array(len)).fill("").map((x, i) => <div ref={`chart${i}`} style={{height: "260px"}}></div>)}
+            </div>
+            <div>{tableContainer}</div>
         </div>)
     }
 }

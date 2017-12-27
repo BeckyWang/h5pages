@@ -45,7 +45,7 @@ const Cover = ({score_base, easy_hard_ratio, student_name, sex, subject, brief})
             <ul className={styles['item']}>
                 <li>总分</li>
                 <li>试题数量</li>
-                <li>知识点</li>
+                <li>知识点数量</li>
             </ul>
         </div>
 
@@ -59,20 +59,6 @@ const Cover = ({score_base, easy_hard_ratio, student_name, sex, subject, brief})
                 <li className={cx({'active': comprehensive_difficulty > 2})}></li>
                 <li className={cx({'active': comprehensive_difficulty > 3})}></li>
                 <li className={cx({'active': comprehensive_difficulty > 4})}></li>
-            </ul>
-        </div>
-
-        <div className={styles['evaluation']}>
-            <p className={styles['title']}>我学的怎么样</p>
-            <ul className={styles['score']}>
-                <li>{student_score}<span>/{total_score}</span></li>
-                <li>{class_avg_score}</li>
-                <li>{grade_avg_score}</li>
-            </ul>
-            <ul className={styles['item']}>
-                <li>分数/满分</li>
-                <li>班级平均分</li>
-                <li>年级平均分</li>
             </ul>
         </div>
     </div>;

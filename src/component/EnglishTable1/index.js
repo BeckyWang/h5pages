@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './styles';
 
-const EnglishTable1 = ({question_type}) => {
-    const tableContainer = question_type.map(({desc, knowledge, my_score, avg_score, total_score}) => <li>
+const EnglishTable1 = ({tableData}) => {
+    const tableContainer = tableData.map(({desc, knowledge, my_score, avg_score, total_score}) => <li>
         <span>{desc}</span>
         <span>{knowledge}</span>
         <span>{my_score}</span>

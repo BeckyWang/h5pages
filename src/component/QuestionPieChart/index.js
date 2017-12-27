@@ -85,10 +85,11 @@ class App extends React.Component {
     }
 
     render() {
+        const { type } = this.props;
         const {chosen, info} = this.state;
         return (<div className={styles.section}>
-            <div className={styles.title}>问题出在哪了</div>
-            <div ref="chart" style={{height: '320px'}}></div>
+            <div className={styles.title}>{type == 'English' ? '各模块占比' : '知识点分布占比'}</div>
+            <div ref="chart" style={{height: '300px'}}></div>
             {chosen ? <div className={styles.info}>
                 <p className={styles.name}>{info.name}</p>
                 <p className={styles.value}>{info.value}%</p>

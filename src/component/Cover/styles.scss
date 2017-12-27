@@ -139,27 +139,4 @@
 			}
 		}
 	}
-
-	.evaluation {
-		margin: 20px 16px 0;
-	    border-radius: 8px;
-	    background-color: #fff;
-
-	    .title {
-		    @extend .title-public;
-			font-size: 24px;
-			padding: 8px 14px;
-	    }
-
-	    .score {
-			@extend .score-public;
-			span {
-				font-size: 14px;
-			}
-	    }
-
-	    .item {
-			@extend .item-public;
-	    }
-	}
 }

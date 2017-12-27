@@ -9,11 +9,10 @@ import ScoreSectionChart from '../component/ScoreSectionChart';
 import AbilityRadarChart from '../component/AbilityRadarChart';
 import QuestionPieChart from '../component/QuestionPieChart';
 import LevelAnalysis from '../component/LevelAnalysis';
-import EnglishTable1 from '../component/EnglishTable1';
-import EnglishTable2 from '../component/EnglishTable2';
 import Cover from '../component/Cover';
 import QuestionTable from '../component/QuestionTable';
 import QRcode from '../component/QRcode';
+import ScoreInfoTable from '../component/ScoreInfoTable';
 
 import Score from '../primarySchoolComponent/coverOfScore';
 import ChineseTable from '../primarySchoolComponent/ChineseTable';
@@ -50,7 +49,8 @@ class App extends React.Component {
             case 1:
                 bodyContainer = <div>
                     <Cover student_name={student_name} sex={sex} subject={subject} score_base={score_base} easy_hard_ratio={easy_hard_ratio} brief={brief} />
-                    <QuestionPieChart data={konwledge_distribute} />
+                    <QuestionPieChart data={konwledge_distribute} type='Math'/>
+                    <ScoreInfoTable score_base={score_base} />
                     <ScoreSectionChart data={score_stage_class} type="CLASS" total={class_count} rank={class_rank} />
                     <ScoreSectionChart data={score_stage_grade} type="GRADE" total={grade_count} rank={grade_rank} />
                     <LevelAnalysis data={konwledge_distribute} />
@@ -60,7 +60,8 @@ class App extends React.Component {
             case 2:
                 bodyContainer = <div>
                     <Cover student_name={student_name} sex={sex} subject={subject} score_base={score_base} easy_hard_ratio={easy_hard_ratio} brief={brief} />
-                    <QuestionPieChart data={konwledge_distribute} />
+                    <QuestionPieChart data={konwledge_distribute} type='Chinese'/>
+                    <ScoreInfoTable score_base={score_base} />
                     <ScoreSectionChart data={score_stage_class} type="CLASS" total={class_count} rank={class_rank} />
                     <ScoreSectionChart data={score_stage_grade} type="GRADE" total={grade_count} rank={grade_rank} />
                     <AbilityRadarChart data={konwledge_distribute} />
@@ -71,11 +72,11 @@ class App extends React.Component {
             case 3:
                 bodyContainer = <div>
                     <Cover student_name={student_name} sex={sex} subject={subject} score_base={score_base} easy_hard_ratio={easy_hard_ratio} brief={brief} />
-                    <QuestionPieChart data={konwledge_distribute} />
+                    <QuestionPieChart data={konwledge_distribute} type='English'/>
+                    <ScoreInfoTable score_base={score_base} />
                     <ScoreSectionChart data={score_stage_class} type="CLASS" total={class_count} rank={class_rank} />
                     <ScoreSectionChart data={score_stage_grade} type="GRADE" total={grade_count} rank={grade_rank} />
                     <EnglishScoreChart data={question_type} />
-                    <EnglishTable1 question_type={question_type} />
                     <QuestionTable problem_analysis={problem_analysis} problem_analysis_list={problem_analysis_list} />
                     <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice}/>
                 </div>;

@@ -1,0 +1,46 @@
+.evaluation {
+	margin: 20px 16px 0;
+    border-radius: 8px;
+    background-color: #fff;
+
+    .title {
+	    line-height: 50px;
+	    color: #333;
+	    font-weight: bold;
+	    letter-spacing: 1px;
+	    font-family: PingFangSC-Medium;
+		font-size: 24px;
+		padding: 8px 14px;
+    }
+
+    .score {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 8px;
+
+		li {
+			width: 33.3%;
+			text-align: center;
+			font-size: 30px;
+		    color: rgb(101, 101, 101);
+		    line-height: 42px;
+		}
+		span {
+			font-size: 14px;
+		}
+    }
+
+    .item {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 30px;
+
+		li {
+			width: 33.3%;
+			text-align: center;
+			font-size: 16px;
+		    color: rgb(153, 153, 153);
+		    line-height: 20px;
+		}
+    }
+}

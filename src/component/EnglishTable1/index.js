@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './styles';
 
 const EnglishTable1 = ({question_type}) => {
-    const tableContainer = question_type.map(({desc, knowledge, my_socre, avg_score, total_score}) => <li>
+    const tableContainer = question_type.map(({desc, knowledge, my_score, avg_score, total_score}) => <li>
         <span>{desc}</span>
         <span>{knowledge}</span>
-        <span>{my_socre}</span>
+        <span>{my_score}</span>
         <span>{avg_score}/{total_score}</span>
     </li>);
 

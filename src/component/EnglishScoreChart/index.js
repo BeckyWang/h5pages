@@ -17,7 +17,7 @@ class App extends React.Component {
         const d = this.state.data;
         const xData = d.map(({desc}) => desc);
         const yData1 = d.map(({my_score}) => my_score);
-        const yData2 = d.map(({avg_score}) => avg_score);
+        const yData2 = d.map(({total_score}) => total_score);
         
         let n = 0;
         while(n * 4 < d.length) {

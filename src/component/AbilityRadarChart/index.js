@@ -50,7 +50,8 @@ class App extends React.Component {
                     name: item,
                     max: 100
                 })),
-                splitNumber: 2
+                splitNumber: 2,
+                radius: 110
             },
             series: [{
                 type: 'radar',

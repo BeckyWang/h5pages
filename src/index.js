@@ -21,6 +21,6 @@ window.renderPage = ({data}) => {
 const scriptNode = document.createElement('script');
 scriptNode.setAttribute('src', `http://ksbg.xueersi.com/index.php?r=stat/score&viewkey=${viewkey}&callback=renderPage&type=${type}`);
 
-document.getElementsByTagName('body')[0].append(scriptNode);
+document.getElementsByTagName('body')[0].appendChild(scriptNode);
 
 

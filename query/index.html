@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>考试报告查询</title>
+
+        <style>
+            body {
+                max-width: 500px;
+                text-align: center;
+                margin: auto;
+                padding-top: 20px;
+            }
+
+            ul, li {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .page {
+                border: 3px solid #dbdad9;
+                border-radius: 50px;
+                padding: 40px 20px 50px;
+                background-color: #eeece1;
+            }
+
+            .head, .search {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .head div {
+                width: 72%;
+            }
+
+            .head img {
+                width: 100%;
+            }
+
+            .head span {
+                font-size: 18px;
+                letter-spacing: 1px;
+                margin-left: 4px;
+            }
+
+            .search {
+                margin: 24px 0;
+            }
+
+            input[type=text] {
+                font-size: 14px;
+                line-height: 26px;
+                width: 66%;
+                margin-right: 4px;
+                padding-left: 4px;
+            }
+            input[type=button] {
+                font-size: 14px;
+                padding: 5px 8px;
+                border-radius: 4px;
+                border: 2px solid #e8db8e;
+                background-color: #efe8c6;
+                cursor: pointer;
+                color: #e16606;
+            }
+
+            ul .title {
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                border-top: 1px solid #f79646;
+                border-bottom: 1px solid #f79646;
+            }
+
+            ul li {
+                line-height: 36px;
+                color: #e36b0a;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            ul li:last-child {
+                border-bottom: 1px solid #f79646;
+            }
+
+            ul li span {
+                flex: 1;
+            }
+
+            ul li a {
+                flex: 1;
+            }
+            
+            .bg-dark {
+                background-color: #fde4d1
+            }
+
+        </style>
+    <body>
+        <div class="page">
+            <div class="head">
+                <div><img src="./logo.gif" alt="logo"></div>
+                <span>考试报告查询</span>
+            </div>
+            <div class="search">
+                <input type="text" id="id"><input type="button" value="搜索" onclick="search()">
+            </div>
+            <ul id="list"></ul>
+        </div>
+        
+        <script>
+            var search = function() {
+                var id = document.getElementById("id").value;
+                var script = document.createElement('script');
+                script.setAttribute("src", "http://ksbg.xueersi.com/index.php?r=stat/search&stu_id=" + id + "&callback=show");
+                document.getElementsByTagName('body')[0].append(script);
+            }
+
+            var show = function(result) {
+                var data = result.data;
+                var list = document.getElementById("list");
+
+                if (!data || !data.length) {
+                    list.innerHTML = "没有查询结果";
+                    return;
+                }
+
+                var innerHTML = data.map(function(d, index) {
+                    var style = index % 2 ? "" : "class='bg-dark'";
+                    return "<li " + style +"><span>" + d.subject_name + "</span><a href='" + d.preview_url + "'>点击查看报告</a></li>"
+                });
+
+                list.innerHTML = "<li class='title'>考试报告</li>" + innerHTML.join("");
+            }
+        </script>
+    </body>
+</html>

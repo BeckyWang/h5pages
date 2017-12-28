@@ -37,6 +37,12 @@ class App extends React.Component {
         const {data} = this.state;
         return (<div className={styles.section}>
             <div className={styles.title}>知识点掌握水平分析</div>
+            <div className={styles.legend}>
+                <div className={classNames(styles['dot-sm'], styles['bg-pink'])}></div>
+                <span>掌握水平</span>
+                <div className={classNames(styles['dot-sm'], styles['bg-green'])}></div>
+                <span>平均水平</span>
+            </div>
             {data.map(({name, avarage, level}) => {
                 if(level < avarage) {                
                     return <div className={styles['item']}>
@@ -74,12 +80,6 @@ class App extends React.Component {
                     </div>
                 }
             })}
-            <div className={styles.legend}>
-                <div className={classNames(styles['dot-sm'], styles['bg-pink'])}></div>
-                <span>掌握水平</span>
-                <div className={classNames(styles['dot-sm'], styles['bg-green'])}></div>
-                <span>平均水平</span>
-            </div>
         </div>)
     }
 }

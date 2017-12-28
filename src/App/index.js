@@ -52,6 +52,7 @@ class App extends React.Component {
                     <ScoreSectionChart data={score_stage_class} type="CLASS" total={class_count} rank={class_rank} />
                     <ScoreSectionChart data={score_stage_grade} type="GRADE" total={grade_count} rank={grade_rank} />
                     <LevelAnalysis data={konwledge_distribute} />
+                    <QuestionTable problem_analysis={problem_analysis} problem_analysis_list={problem_analysis_list} />
                     <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice}/>
                 </div>;
             case 2:

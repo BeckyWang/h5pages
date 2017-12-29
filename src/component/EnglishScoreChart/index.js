@@ -90,13 +90,17 @@ class App extends React.Component {
                     interval: 0,
                     padding: [4, 3],
                     formatter: function (value) {
+                        if(!value) {
+                            return;
+                        }
                         return value.length > 4 ? `${value.substring(0, 3)}...` : value;
                     }
                 },
                 splitLine: {
                     show: false
                 },
-                triggerEvent: true
+                triggerEvent: true,
+                max: 3
             }],
             yAxis: [{
                 type: 'value',

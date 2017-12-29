@@ -112,7 +112,7 @@
                 <span>考试报告查询</span>
             </div>
             <div class="search">
-                <input type="text" id="id"><input type="button" value="搜索" onclick="search()">
+                <input type="text" id="id" placeholder="请输入账号或学生ID查询"><input type="button" value="查询成绩" onclick="search()">
             </div>
             <ul id="list"></ul>
         </div>
@@ -130,7 +130,7 @@
                 var list = document.getElementById("list");
 
                 if (!data || !data.length) {
-                    list.innerHTML = "没有查询结果";
+                    list.innerHTML = "<span style='color: red'>没有查询结果</span>";
                     return;
                 }
 

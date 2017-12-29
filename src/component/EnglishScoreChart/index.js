@@ -290,9 +290,9 @@ class App extends React.Component {
     showTable(type) {
         const questionData = this.state.data;
         let tableData = [];
-        if(type.indexOf('阅读理解') > -1) {
+        if(type == '阅读理解') {
             tableData = questionData.filter(({desc}) => {
-                return desc.indexOf('阅读理解') > -1;
+                return desc == '阅读理解';
             });
             this.setState({
                 tableIndex: 2,

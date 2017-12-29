@@ -304,7 +304,7 @@ class App extends React.Component {
             });
             this.setState({
                 tableIndex: 1,
-                tableData,
+                tableData: tableData[0] ? tableData[0].question_list : [],
             });
         }
     }

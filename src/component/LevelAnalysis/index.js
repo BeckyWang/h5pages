@@ -36,7 +36,7 @@ class App extends React.Component {
     render() {
         const {data} = this.state;
         return (<div className={styles.section}>
-            <div className={styles.title}>知识点掌握水平分析</div>
+            <div className={styles.title}>知识点掌握水平分析/百分比</div>
             <div className={styles.legend}>
                 <div className={classNames(styles['dot-sm'], styles['bg-pink'])}></div>
                 <span>掌握水平</span>

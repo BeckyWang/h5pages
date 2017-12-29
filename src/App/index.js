@@ -40,7 +40,7 @@ class App extends React.Component {
             score_stage_grade, grade_count, grade_rank,
             konwledge_distribute, question_type, question_type_topic,
             problem_analysis, problem_analysis_list,
-            qrcode_url, foot_notice,
+            qrcode_url, foot_notice, foot_extra
         } = this.state;
 
         switch(+type) {
@@ -53,7 +53,7 @@ class App extends React.Component {
                     <ScoreSectionChart data={score_stage_grade} type="GRADE" total={grade_count} rank={grade_rank} grade={score_base.student_score} />
                     <LevelAnalysis data={konwledge_distribute} />
                     <QuestionTable problem_analysis={problem_analysis} problem_analysis_list={problem_analysis_list} />
-                    <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice}/>
+                    <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice} foot_extra={foot_extra} />
                 </div>;
             case 2:
                 return <div>
@@ -64,7 +64,7 @@ class App extends React.Component {
                     <ScoreSectionChart data={score_stage_grade} type="GRADE" total={grade_count} rank={grade_rank} grade={score_base.student_score} />
                     <AbilityRadarChart data={konwledge_distribute} />
                     <QuestionTable problem_analysis={problem_analysis} problem_analysis_list={problem_analysis_list} />
-                    <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice}/>
+                    <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice} foot_extra={foot_extra} />
                 </div>;
             case 3:
                 return <div>
@@ -75,28 +75,28 @@ class App extends React.Component {
                     <ScoreSectionChart data={score_stage_grade} type="GRADE" total={grade_count} rank={grade_rank} grade={score_base.student_score} />
                     <EnglishScoreChart data={question_type} />
                     <QuestionTable problem_analysis={problem_analysis} problem_analysis_list={problem_analysis_list} />
-                    <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice}/>
+                    <QRcode qrcode_url={qrcode_url} foot_notice={foot_notice} foot_extra={foot_extra} />
                 </div>;
             case 4:
                 return <div>
                     <Score />
                     <ChineseTable />
                     <Certificate />
-                    <QRcodeForPrimary qrcode_url={qrcode_url} foot_notice={foot_notice}/>
+                    <QRcodeForPrimary qrcode_url={qrcode_url} foot_notice={foot_notice} foot_extra={foot_extra} />
                 </div>;
             case 5:
                 return <div>
                     <Score />
                     <PublicTable type='Math'/>
                     <Certificate />
-                    <QRcodeForPrimary qrcode_url={qrcode_url} foot_notice={foot_notice}/>
+                    <QRcodeForPrimary qrcode_url={qrcode_url} foot_notice={foot_notice} foot_extra={foot_extra} />
                 </div>;
             case 6:
                 return <div>
                     <Score />
                     <PublicTable type='English'/>
                     <Certificate />
-                    <QRcodeForPrimary qrcode_url={qrcode_url} foot_notice={foot_notice}/>
+                    <QRcodeForPrimary qrcode_url={qrcode_url} foot_notice={foot_notice} foot_extra={foot_extra} />
                 </div>;
             default:
                 return <div>error</div>;

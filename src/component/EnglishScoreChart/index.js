@@ -311,7 +311,7 @@ class App extends React.Component {
 
     render() {
         const { tableData, tableIndex } = this.state;
-        const len = Math.ceil(this.state.data.length / 5);
+        const len = Math.ceil(this.state.data.length / 4);
         let tableContainer = null;
         switch(tableIndex) {
             case 1:

@@ -3,26 +3,26 @@ import echarts from 'echarts';
 
 import styles from './styles';
 
-function calculateIndex(rank, arr) {
-    let i = 0, len = arr.length, v = 0;
+function calculateIndex(grade, arr) {
+    let i = 0, len = arr.length;
     for(; i < len; i++) {
-        v += arr[i];
-        if(v >= rank) {
-            return len - i - 1;
+        let r = arr[i].split('-');
+        if(grade >= r[0] && grade <= r[1]) {
+            return i;
         }
     }
     return 0;
 }
 
 class App extends React.Component {
-    constructor({data, type, rank, total}) {
+    constructor({data, type, rank, total, grade}) {
         super();
         this.state = {
             type: type || 'CLASS', 
             total,
             rank, 
             section: data.map(({stage_count}) => stage_count), 
-            index: calculateIndex(rank, data.map(({stage_count}) => stage_count).reverse()),
+            index: calculateIndex(grade, data.map(({stage_desc}) => stage_desc)),
             xData: data.map(({stage_desc}) => stage_desc)
         }
     }

@@ -7,7 +7,7 @@ function calculateIndex(grade, arr) {
     let i = 0, len = arr.length;
     for(; i < len; i++) {
         let r = arr[i].split('-');
-        if(grade >= r[0] && grade <= r[1]) {
+        if(+grade >= +r[0] && +grade <= +r[1]) {
             return i;
         }
     }

@@ -4,9 +4,9 @@ import classNames from 'classnames';
 
 import styles from './styles';
 
-function Dot({value, color, marginLeft}) {
+function Dot({value, color, marginLeft, left}) {
     const style = {
-        left: `${value}%`
+        left: `${left || value}%`
     };
     marginLeft && (style['marginLeft'] = marginLeft);
     return <div className={classNames(styles['dot'], styles[`border-${color}`])} style={style}>
@@ -44,7 +44,12 @@ class App extends React.Component {
                 <span>平均水平</span>
             </div>
             {data.map(({name, avarage, level}) => {
-                if(level < avarage) {                
+                if(level < avarage) {
+                    const distance = -level + avarage;
+                    let left = null;
+                    if (distance < 5) {
+                        left = level + distance / 2;
+                    }
                     return <div className={styles['item']}>
                         <div className={styles['description']}>
                             <span>{name}</span>
@@ -52,19 +57,24 @@ class App extends React.Component {
                         <div className={styles['percent-bg']}>
                             <Bar value={avarage} color="green" />
                             <Bar value={level} color="pink" />
-                            <Dot value={avarage} color="green" />
-                            <Dot value={level} color="pink" />
+                            <Dot value={avarage} color="green" left={left} marginLeft={left && '0'} />
+                            <Dot value={level} color="pink" left={left} marginLeft={left && '-24px'} />
                         </div>
                     </div>
                 } else if(level > avarage) {
+                    const distance = level - avarage;
+                    let left = null;
+                    if (distance < 5) {
+                        left = avarage + distance / 2;
+                    }
                     return <div className={styles['item']}>
                         <div className={styles['description']}>
                             <span>{name}</span>
                         </div>
                         <div className={styles['percent-bg']}>
                             <Bar value={level} color="pink" />
-                            <Dot value={avarage} color="green" />
-                            <Dot value={level} color="pink" />
+                            <Dot value={avarage} color="green" left={left} marginLeft={left && '-24px'} />
+                            <Dot value={level} color="pink" left={left} marginLeft={left && '0'} />
                         </div>
                     </div>
                 } else {

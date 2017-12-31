@@ -26,8 +26,8 @@ class App extends React.Component {
         const yData2 = d.map(({total_score}) => total_score);
         
         let n = 0;
-        while(n * 4 < d.length) {
-            this.show(xData.slice(n * 4, n * 4 + 4), yData1.slice(n * 4, n * 4 + 4), yData2.slice(n * 4, n * 4 + 4), n++);
+        while(n * 5 < d.length) {
+            this.show(xData.slice(n * 5, n * 5 + 5), yData1.slice(n * 5, n * 5 + 5), yData2.slice(n * 5, n * 5 + 5), n++);
         }
 
         this.showTable(d[0].desc);
@@ -100,7 +100,7 @@ class App extends React.Component {
                     show: false
                 },
                 triggerEvent: true,
-                max: 3
+                max: 4
             }],
             yAxis: [{
                 type: 'value',
@@ -146,7 +146,7 @@ class App extends React.Component {
                         }
                     }
                 }),
-                barWidth: 26
+                barWidth: 24
             }, {
                 name: '总分',
                 type: 'bar',
@@ -175,7 +175,7 @@ class App extends React.Component {
                         }
                     }
                 }),
-                barWidth: 26
+                barWidth: 24
             }],
             color: ['#5A83FF', '#FF739C'],
             grid: {
@@ -197,7 +197,7 @@ class App extends React.Component {
         chart.on('click', ({componentType, value}) => {
             if (componentType == 'xAxis') {
                 let n = 0;
-                while(n * 4 < this.state.data.length) {
+                while(n * 5 < this.state.data.length) {
                     if(index == n) {
                         chart.setOption({
                             ...option,
@@ -315,7 +315,7 @@ class App extends React.Component {
 
     render() {
         const { tableData, tableIndex } = this.state;
-        const len = Math.ceil(this.state.data.length / 4);
+        const len = Math.ceil(this.state.data.length / 5);
         let tableContainer = null;
         switch(tableIndex) {
             case 1:

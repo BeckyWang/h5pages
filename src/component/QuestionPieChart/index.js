@@ -88,7 +88,7 @@ class App extends React.Component {
         const { type } = this.props;
         const {chosen, info} = this.state;
         return (<div className={styles.section}>
-            <div className={styles.title}>{type == 'English' ? '各模块占比' : '知识点分布占比'}</div>
+            <div className={styles.title}>{type == 'Math' ? '知识点分布占比' : '各模块占比'}</div>
             <div ref="chart" style={{height: '300px'}}></div>
             {chosen ? <div className={styles.info}>
                 <p className={styles.name}>{info.name}</p>

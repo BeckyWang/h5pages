@@ -6,7 +6,7 @@ const EnglishTable2 = ({tableData}) => {
     const tableContainer = tableData.map(({topic_name, topic_list}) =>{
         
         return <li className={styles['body-item']}>
-            <span style={{width: '24%', marginBottom: '14px', textAlign: 'right'}}>{topic_name}</span>
+            <span style={{width: '24%', marginBottom: '14px', textAlign: 'center'}}>{topic_name}</span>
             <ul className={styles['knowledge-point']} style={{width: '76%'}}>
                 { topic_list.map(({avg_score, knowledge, my_score, total_score}) => <li>
                     <span style={{width: '56%'}}>{knowledge}</span>

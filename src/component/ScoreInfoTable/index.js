@@ -6,7 +6,7 @@ const ScoreInfoTable = ({score_base}) => {
     const { student_score, total_score, class_avg_score, grade_avg_score } = score_base;
 
     return <div className={styles['evaluation']}>
-        <p className={styles['title']}>我学的怎么样</p>
+        <p className={styles['title']}>我学得怎么样</p>
         <ul className={styles['score']}>
             <li>{student_score}<span>/{total_score}</span></li>
             <li>{class_avg_score}</li>

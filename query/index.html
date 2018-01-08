@@ -122,7 +122,7 @@
                 var id = document.getElementById("id").value;
                 var script = document.createElement('script');
                 script.setAttribute("src", "http://ksbg.xueersi.com/index.php?r=stat/search&stu_id=" + id + "&callback=show");
-                document.getElementsByTagName('body')[0].append(script);
+                document.getElementsByTagName('body')[0].appendChild(script);
             }
 
             var show = function(result) {
